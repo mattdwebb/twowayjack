@@ -6,7 +6,7 @@ d The command will calculate two standard errors for the coefficient of interest
 d Both use the max(se) procedure rather than an eigenvalue correction.  The first standard error
 d uses the conventional (non-jackknife) CRVE, referred to as CV_1.  The second, and preferred, 
 d standard error is the jackknife one, CV_3.  The package also calculates coefficients of variation
-d for leverage, partial leverage, cluster sizes and omit-one-cluster coefficietns in each dimension.
+d for leverage, partial leverage, cluster sizes and omit-one-cluster coefficients in each dimension.
 d Finally, it calculcates the effective number of clusters in the two dimensions of clustering.  
 d 
 d KW: twowayjack
