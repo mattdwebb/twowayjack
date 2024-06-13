@@ -2,7 +2,7 @@ d 'TWOWAYJACK': Stata module for jackknife inference with twoway clustering
 d
 d twowayjack is a stand alone command that calculates a cluster jackknife variance estimator.
 d MacKinnon, Nielsen, and Webb (2024) documents the procedure more fully than this help file. 
-d The command will calculate two standard errors for the coefficient of interes.
+d The command will calculate two standard errors for the coefficient of interest.
 d Both use the max(se) procedure rather than an eigenvalue correction.  The first standard error
 d uses the conventional (non-jackknife) CRVE, referred to as CV_1.  The second, and preferred 
 d standard error is the jackknife one, CV_3.  The package also calculates coefficients of variation
