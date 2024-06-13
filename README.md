@@ -1,20 +1,3 @@
----
-output: github_document
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r setup, include = F}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-# devtools::install_github("Hemken/Statamarkdown")
-library(Statamarkdown)
-```
-
 # twowayjack
 
 Stata module for two-way cluster jackknife variance estimation.
