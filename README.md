@@ -1,0 +1,42 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = F}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+# devtools::install_github("Hemken/Statamarkdown")
+library(Statamarkdown)
+```
+
+# twowayjack
+
+Stata module for two-way cluster jackknife variance estimation.
+
+For a very detailed description see:
+
+MacKinnon, J.G., Nielsen, M.Ø., Webb, M.D., 2024. [Jackknife inference with two-way clustering](https://arxiv.org/abs/2406.XXXX).    
+
+### nlswork example - using regress
+
+```{stata}
+webuse nlswork, clear
+keep if inrange(age,25,35)
+gen vismin  = inrange(race,2,3)
+reg hours vismin south i.age i.birth_yr i.year i.ind   , cluster(ind)
+```
+
+### nlswork - using twowayjack
+
+```{stata, echo=-1}
+webuse nlswork, clear
+keep if inrange(age,25,35)
+gen vismin  = inrange(race,2,3)
+twowayjack  hours vismin south   ,  fevar(age birth_yr year ind ) cluster(age ind)
+```
