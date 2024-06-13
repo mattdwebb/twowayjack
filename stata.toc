@@ -1,0 +1,5 @@
+v 3
+
+d GitHub repository for archiving and developing twowayjack, by Matthew D. Webb
+
+p twowayjack twowayjack package
