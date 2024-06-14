@@ -4,7 +4,42 @@ Stata module for two-way cluster jackknife variance estimation.
 
 For a very detailed description see:
 
-MacKinnon, J.G., Nielsen, M.Ø., Webb, M.D., 2024. [Jackknife inference with two-way clustering](https://arxiv.org/abs/2406.08880).    
+MacKinnon, J.G., Nielsen, M.Ø., Webb, M.D., 2024. [Jackknife inference with two-way clustering](https://arxiv.org/abs/2406.08880).  
+
+
+### nlswork - using twowayjack
+
+```{stata, echo=-1}
+webuse nlswork, clear
+keep if inrange(age,25,35)
+gen vismin  = inrange(race,2,3)
+twowayjack  hours vismin south   ,  fevar(age birth_yr year ind ) cluster(age ind)
+
+TWOWAYJACK
+Reference: James G. MacKinnon, Morten Ø. Nielsen, and Matthew D. Webb
+           Jackknife inference with two-way clustering
+ 
+Two-way cluster jackknife variance estimation.
+Cluster summary statistics for vismin when clustered by age and ind_code.
+
+Regression Output
+
+    s.e. |      Coeff   Sd. Err.   t-stat  P value    CI-lower    CI-upper
+---------+----------------------------------------------------------------
+  CV1max |   1.054672   0.420220   2.5098   0.0309    0.223377    1.885967
+  CV3max |   1.054672   0.521628   2.0219   0.0708   -0.107587    2.216931
+--------------------------------------------------------------------------
+
+Coefficients of Variation, G, and G*
+
+ dimension |       Ng   Leverage  Partial L.   beta no g        G      Gstar
+-----------+----------------------------------------------------------------
+       age |   0.0987     0.1813      0.0927      0.0431       11      10.90
+  ind_code |   1.1815     0.8823      1.1849      0.1565       12       5.21
+ intersect |   1.1507     0.8925      1.1557      0.0173      132      56.26
+----------------------------------------------------------------------------
+
+```
 
 ### nlswork example - using regress
 
@@ -86,41 +121,5 @@ Linear regression                               Number of obs     =     13,754
              |
        _cons |   41.76949   2.324664    17.97   0.000     36.65293    46.88604
 ------------------------------------------------------------------------------
-
-```
-
-### nlswork - using twowayjack
-
-```{stata, echo=-1}
-webuse nlswork, clear
-keep if inrange(age,25,35)
-gen vismin  = inrange(race,2,3)
-twowayjack  hours vismin south   ,  fevar(age birth_yr year ind ) cluster(age ind)
-
-TWOWAYJACK
-Reference: James G. MacKinnon, Morten Ø. Nielsen, and Matthew D. Webb
-           Jackknife inference with two-way clustering
- 
-Two-way cluster jackknife variance estimation.
-Cluster summary statistics for vismin when clustered by age and ind_code.
-
-Regression Output
-
-    s.e. |      Coeff   Sd. Err.   t-stat  P value    CI-lower    CI-upper
----------+----------------------------------------------------------------
-  CV1max |   1.054672   0.420220   2.5098   0.0309    0.223377    1.885967
-  CV3max |   1.054672   0.521628   2.0219   0.0708   -0.107587    2.216931
---------------------------------------------------------------------------
-
-Coefficients of Variation, G, and G*
-
- dimension |       Ng   Leverage  Partial L.   beta no g        G      Gstar
------------+----------------------------------------------------------------
-       age |   0.0987     0.1813      0.0927      0.0431       11      10.90
-  ind_code |   1.1815     0.8823      1.1849      0.1565       12       5.21
- intersect |   1.1507     0.8925      1.1557      0.0173      132      56.26
-----------------------------------------------------------------------------
-
-
 
 ```
