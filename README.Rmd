@@ -23,6 +23,15 @@ For a very detailed description see:
 
 MacKinnon, J.G., Nielsen, M.Ø., Webb, M.D., 2024. [Jackknife inference with two-way clustering](https://arxiv.org/abs/2406.08880).    
 
+### nlswork - using twowayjack
+
+```{stata, echo=-1}
+webuse nlswork, clear
+keep if inrange(age,25,35)
+gen vismin  = inrange(race,2,3)
+twowayjack  hours vismin south   ,  fevar(age birth_yr year ind ) cluster(age ind)
+```
+
 ### nlswork example - using regress
 
 ```{stata}
@@ -32,11 +41,4 @@ gen vismin  = inrange(race,2,3)
 reg hours vismin south i.age i.birth_yr i.year i.ind   , cluster(ind)
 ```
 
-### nlswork - using twowayjack
 
-```{stata, echo=-1}
-webuse nlswork, clear
-keep if inrange(age,25,35)
-gen vismin  = inrange(race,2,3)
-twowayjack  hours vismin south   ,  fevar(age birth_yr year ind ) cluster(age ind)
-```
