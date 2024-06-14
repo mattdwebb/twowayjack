@@ -92,7 +92,7 @@ free contribution to the research community.
 
 Please cite:
 {p 8 8 2} James G. MacKinnon,  Morten Ø. Nielsen, and Matthew D. Webb.
-2024. Jackknife inference with two-way clustering.{p_end}
+2024. Jackknife inference with two-way clustering. Arxiv 2406.08880. {p_end}
 
 
 
