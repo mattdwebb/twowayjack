@@ -4,7 +4,7 @@ Stata module for two-way cluster jackknife variance estimation.
 
 For a very detailed description see:
 
-MacKinnon, J.G., Nielsen, M.Ø., Webb, M.D., 2024. [Jackknife inference with two-way clustering](https://arxiv.org/abs/2406.XXXX).    
+MacKinnon, J.G., Nielsen, M.Ø., Webb, M.D., 2024. [Jackknife inference with two-way clustering](https://arxiv.org/abs/2406.08880).    
 
 ### nlswork example - using regress
 
